@@ -1,64 +1,110 @@
-nav{
+@import "../../responsive.scss";
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+
+  a {
+    transition: all 0.3s ease;
+
+    &:hover {
+      scale: 1.05;
+    }
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  .left {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 100px;
+    gap: 50px;
+    flex: 3;
 
+    .Logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      font-size: 20px;
 
-
-    a{
-        transition:all 0.3s ease;
-
-        &:hover{
-            scale: 1.05;
+      span {
+        @include tab {
+          display: none;
         }
+
+        @include phone {
+          display: initial;
+        }
+      }
+
+      .logo {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+  .right {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    background-color: #fcf5f3;
+    height: 100%;
+    justify-content: flex-end;
+
+    @include phone {
+      background-color: transparent;
     }
 
-    .left{
-        display: flex;
-        align-items: center;
-        gap: 50px;
-        flex: 3;
-
-        .Logo{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            font-size: 20px;
-
-            .logo{
-                width: 40px;
-                height: 40px;
-                
-
-            }
-        }
-
-
+    .signup {
+      background-color: #ffea00;
     }
 
-
-
-
-    .right{
-        flex: 2;
-        display: flex;
-        align-items: center;
-        background-color: #fcf5f3;
-        height: 100%;
-        justify-content: flex-end;
-
-        .signup{
-            background-color: #ffea00;
-        }
-        
-
-        a{
-            padding: 12px 24px;
-            margin: 20px;
-        }
+    a {
+      padding: 12px 24px;
+      margin: 20px;
     }
 
+    .menuIcon {
+      display: none;
+      width: 30px;
+      height: 30px;
+      z-index: 999;
+      cursor: pointer;
 
+      @include phone {
+        display: initial;
+      }
+    }
+
+    .menulist {
+      width: 50%;
+      position: absolute;
+      background-color: black;
+      height: 100vh;
+      right: -50%;
+      top: 0;
+      color: white;
+      transition: all 1s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &.active {
+        right: 0;
+        transition: all 1s ease;
+      }
+
+      @include phone {
+        a {
+          display: initial;
+        }
+      }
+    }
+  }
 }
